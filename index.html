@@ -1,793 +1,646 @@
-<!-----------------------------------------------------------------------
-   ur twenties are weird. i have the priorities of a kindergartener again. i don’t know what in the hell is going on EVER. i like colors. i like soup. i want to take a nap
-   
-   ------------------------------------------------------------------------>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="//www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-   <head>
-      <title>XatSpace Jonny</title>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>XatSpace Jonny</title>
 
-      <!--------------------JAVASCRIPTS-------------------->
-      <script src="assets/js/jquery.min.js"></script>
-      <script src="assets/js/jquery.style-my-tooltips.js"></script>
-      <script>
-         (function($){
-         $(document).ready(function(){
-         $("a[title]").style_my_tooltips({
-         tip_follows_cursor:true,
-         tip_delay_time:50,
-         tip_fade_speed:0,
-         attribute:"title"
-         });
-         });
-         })(jQuery);
-      </script>
-      <link href="https://fonts.googleapis.com/css?family=Quicksand|Karla" rel="stylesheet">
-      <link href="assets/css/cappuccicons.css" rel="stylesheet">
-      <script src="assets/js/jquery.scrollbar.js"></script>
-      <link href="assets/css/jquery.scrollbar.css" rel="stylesheet">
-      <link href="assets/css/more_jscroll_styling.css" rel="stylesheet">
-      <script src="assets/js/empress-mini.js"></script>
-      <script>
-         $(document).ready(function(){
-             function brrr(){
-              /*
-			   $("html").on("contextmenu",function(){
-           return false;
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Quicksand|Karla&display=swap" rel="stylesheet">
+
+  <!-- Icons + local assets -->
+  <link href="assets/css/cappuccicons.css" rel="stylesheet">
+
+  <!-- jQuery -->
+  <script src="assets/js/jquery.min.js"></script>
+
+  <!-- Tooltips (si los usas con title="...") -->
+  <script src="assets/js/jquery.style-my-tooltips.js"></script>
+
+  <!-- Scrollbar (opcional, lo dejas si quieres ese estilo) -->
+  <script src="assets/js/jquery.scrollbar.js"></script>
+  <link href="assets/css/jquery.scrollbar.css" rel="stylesheet">
+  <link href="assets/css/more_jscroll_styling.css" rel="stylesheet">
+
+  <script>
+    (function($){
+      $(document).ready(function(){
+
+        // Habilita interacción normal (evita bugs por CSS)
+        $("html").css("pointer-events","initial");
+
+        // Tooltips
+        $("a[title]").style_my_tooltips({
+          tip_follows_cursor:true,
+          tip_delay_time:50,
+          tip_fade_speed:0,
+          attribute:"title"
         });
-			  */
-                 $(document).keydown(function(event){
-                     if (event.keyCode == 123) {
-                         return false;
-                     } else
-                     
-                     if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
-                         return false;
-                     } else
-                     
-                     if (event.ctrlKey && event.keyCode == 85) {
-                         return false;
-                     }
-                 });
-             }
-             
-             brrr()
-             
-             $("html").css("pointer-events","initial")
-         });// end docready
-      </script>
-      <!-------------------------------------------------------------------->
-      <style type="text/css">
-         /*--------------------TOOLTIPS--------------------*/
-         #s-m-t-tooltip {
-         padding:5px 10px;
-         margin:20px;
-         background:var(--Tooltips-BG);
-         border:1px solid var(--Tooltips-Border);
-         font-family:karla;
-         font-size:var(--Tooltips-Font-Size);
-         letter-spacing:1px;
-         text-transform:uppercase;
-         color:var(--Tooltips-Text);
-         z-index:99;
-         max-width:40vw;
-         }
-         /*--------------------TUMBLR CONTROLS--------------------*/
-         iframe#tumblr_controls, .iframe-controls--desktop {
-         top:8px!important;
-         right:8px!important;
-         position:fixed!important;
-         pointer-events:none;
-         transform:scale(0.8,0.8);
-         -webkit-transform:scale(0.8,0.8);
-         -moz-transform:scale(0.8,0.8);
-         -o-transform:scale(0.8,0.8);
-         -ms-transform:scale(0.8,0.8);
-         transform-origin:100% 0;
-         -webkit-transform-origin:100% 0;
-         -moz-transform-origin:100% 0;
-         -o-transform-origin:100% 0;
-         -ms-transform-origin:100% 0;
-         z-index:999999!important;
-         }
-         /*--------------------TEXT HIGHLIGHT--------------------*/
-         ::selection {
-         color:var(--Accent-Color-1A);
-         }
-         ::-moz-selection {
-         color:var(--Accent-Color-1A);
-         }
-         html {
-         pointer-events:none;
-         }
-         /*--------------------BASICS--------------------*/
-         body {
-         background-attachment:fixed;
-         line-height:1.6em;
-         font-size:12px;
-         text-align:left;
-         }
-         #sb-background, #sb-foreground {
-         display:none;
-         }
-         #crevette, #bio-text {
-         opacity:0;
-         }
-         blockquote {
-         padding-left:10px;
-         margin-left:5px;
-         border-left:1px solid;
-         border-color:#aaa;
-         margin:10px;
-         }
-         a, :after, :before {
-         text-decoration:none;
-         -webkit-transition: all 0.4s ease-in-out;
-         -moz-transition: all 0.4s ease-in-out;
-         -o-transition: all 0.4s ease-in-out;
-         }
-         pre, code {
-         white-space:pre-wrap;
-         }
-         hr {
-         width:70%;
-         border-width:0px;
-         height:1px;
-         background-color:#bbb;
-         }
-         img {vertical-align:middle;}
-         th {
-         content:"th";
-         display:table-cell;
-         }
-         /*---------------CUSTOMIZATION OPTIONS---------------*/
-         /*   all sizes etc are edited in the   :root   list below
-         EXCEPT for the background, changed here:
-         */
-         body {
-         background-color:#939393;
-         /* to change the image, put the url beteen the brackets of url()
-         do not remove the brackets or semicolon at the end */
-         /*background-image:url(https://static.tumblr.com/c0a4e7cc4f5c2882a7779a37b63132bf/2pnwama/qAaoy90vm/tumblr_static_c7ybwm57sv4k0s0kswccgoss0.png);*/
-         background-repeat:no-repeat;
-         }
-         :root {
-         
-         /*------- OUTER FRAME -------*/
-         --Frame-Thickness:22px;
-         --Frame-Color:255, 255, 255; /* RGB only */
-         --Frame-Opacity:0.25;
-         --Frame-Shadow-Size:45px;
-         --Frame-Shadow-Color:0, 0, 0; /* RGB only */
-         --Frame-Shadow-Opacity:0.06;
-         /*------- GENERAL -------*/   /* CURRENTLY: */
-         --Accent-Color-1A:#5a5a5a;    /* black */
-         --Accent-Color-1B:#fff;       /* white */
-         --Accent-Color-2A:#fafafa;    /* very pale gray */
-         --Accent-Color-2B:#888;       /* gray (text color) */
-         --Container-Outer-Padding:20px;
-         --Container-Inner-Padding:20px;
-         --Main-Text-Width:600px;
-         --Main-Background:#fff;
-         --Text-Color:#999;
-         --Normal-Links-Color:#a3c7b4; /* any links in your bio text
-         does NOT include toplinks & customlinks */
-         /*------- TOP BAR -------*/
-         --Top-Bar-Padding:13px;
-         /*------- NAV LINKS (home, message, etc) -------*/
-         --NavLinks-Icon-Size:12px;
-         --NavLinks-Icon-Padding:5px;
-         --NavLinks-Text-Font-Size:9px;
-         --NavLinks-Spacing:12px;
-         /*------- HEART ICON -------*/
-         --Heart-Icon-Size:28px;
-         --Heart-Icon-Padding:12px;
-         --Heart-Icon-Text-TOP-Font-Size:9px;
-         --Heart-Icon-Text-TOP-Roundness:25px;
-         --Heart-Icon-Text-Padding-VERTICAL:3px;
-         --Heart-Icon-Text-Padding-HORIZONTAL:25px;
-         --Heart-Icon-Text-BOTTOM-Font-Size:13px;
-         --Heart-Icon-Bottom-Gap:10px;
-         /*------- ICON IMAGE -------*/
-         --Icon-Image-Size:80px;
-         --Icon-Image-Border-Size:5px;
-         --Icon-Image-Roundness:10px;
-         /*------- STATS (name, birthday, etc) -------*/
-         --Stats-Icon-Size:12px;
-         --Stats-Icon-Padding:7px;
-         --Stats-Label-Font-Size:11px;
-         --Stats-Label-Padding:6px;
-         --Stats-Detail-Font-Size:13px;
-         --Stats-Spacing:7px;
-         /*------- CUSTOM LINKS -------*/
-         --CustomLinks-Icon-Size:12px;
-         --CustomLinks-Icon-Padding:5px;
-         --CustomLinks-Text-Font-Size:9px;
-         --CustomLinks-Width:105px;
-         --CustomLinks-Spacing:5px;
-         --CustomLinks-Columns-Per-Row:2;
-         /*------- BIO TEXT -------*/
-         --BioText-Font-Size:12px;
-         --Text-Color:#999;
-         --BioText-LineHeight:1.69;
-         /*------- RIGHT SIDEBAR -------*/
-         --Sidebar-BG-Image-Width:300px;
-         --Sidebar-BG-Image-Height:470px;
-         --Sidebar-BG-Color:#fafafa;
-         --Sidebar-Foreground-Image-Width:300px;
-         /*--- SPEECH BUBBLE ---*/
-         --Speech-Bubble-Margins:20px;
-         --Speech-Bubble-BG:255, 255, 255; /* RGB only */
-         --Speech-Bubble-BG-Opacity:0.865;
-         --Speech-Bubble-Border-Color:51, 51, 51; /* RGB only */
-         --Speech-Bubble-Border-Opacity:0.07;
-         --Speech-Bubble-Roundness:12px;
-         --Speech-Bubble-Font-Size:12px;
-         --Speech-Bubble-Text:#666;
-         --Speech-Bubble-Padding:15px;
-         /*------- MISC/OTHER -------*/
-         --Tooltips-BG:#fefefe;
-         --Tooltips-Border:#f2f2f2;
-         --Tooltips-Text:#aaa;
-         --Tooltips-Font-Size:9px;
-         }
-         #horizontal-a {
-         position:fixed;
-         top:0;left:0;right:0;
-         margin:0 auto;
-         height:100vh;
-         text-align:center;
-         z-index:-1;
-         }
-         /*-------- FRAME & CONTAINER --------*/
-         #horizontal-b {
-         display:inline-block;
-         }
-         #vertigo-a {
-         height:100vh;
-         display:table;
-         }
-         #vertigo-b {
-         display:table-cell;
-         vertical-align:middle;
-         } 
-         #frame {
-         border:var(--Frame-Thickness) solid rgba(var(--Frame-Color),var(--Frame-Opacity));
-         box-shadow:0 0 var(--Frame-Shadow-Size) 0 rgba(var(--Frame-Shadow-Color),var(--Frame-Shadow-Opacity));
-         display:table;
-         }
-         /*-------- LEFT (MAIN) CONTAINER --------*/
-         #potato {
-         position:relative;
-         display:table-cell;
-         vertical-align:top;
-         width:var(--Main-Text-Width);
-         background:var(--Main-Background);
-         }
-         /*-------- TOP BAR --------*/
-         #navbar {
-         padding:var(--Top-Bar-Padding);
-         background:var(--Accent-Color-2A);
-         overflow:auto;
-         }
-         .backtotop {
-         float:left;
-         cursor:pointer;
-         }
-         .backtotop a {
-         display:flex;
-         align-items:center;
-         background:var(--Accent-Color-1B);
-         border:1px solid var(--Accent-Color-1A);
-         border-radius:5px;
-         line-height:1em;
-         overflow:hidden;
-         max-height:calc((var(--NavLinks-Icon-Padding) * 2) + var(--NavLinks-Icon-Size));
-         }
-         .backtotop .cp {
-         padding:var(--NavLinks-Icon-Padding);
-         background:var(--Accent-Color-1A);
-         font-size:var(--NavLinks-Icon-Size);
-         color:var(--Accent-Color-1B);
-         }
-         .backtotop span {
-         padding:calc((((var(--NavLinks-Icon-Padding) * 2) + var(--NavLinks-Icon-Size)) - var(--NavLinks-Text-Font-Size)) / 2);
-         margin-right:1px;
-         font-family:quicksand;
-         font-weight:bold;
-         font-size:var(--NavLinks-Text-Font-Size);
-         text-transform:uppercase;
-         letter-spacing:1px;
-         color:var(--Accent-Color-1A);
-         }
-         .navlinks {
-         float:right;
-         display:flex;
-         }
-         .navlinks a {
-         display:flex;
-         align-items:center;
-         margin-left:var(--NavLinks-Spacing);
-         background:var(--Accent-Color-1B);
-         border:1px solid var(--Accent-Color-1A);
-         border-radius:5px;
-         line-height:1em;
-         overflow:hidden;
-         max-height:calc((var(--NavLinks-Icon-Padding) * 2) + var(--NavLinks-Icon-Size));
-         }
-         .navlinks .cp {
-         padding:var(--NavLinks-Icon-Padding);
-         background:var(--Accent-Color-1A);
-         font-size:var(--NavLinks-Icon-Size);
-         color:var(--Accent-Color-1B);
-         }
-         .navlinks span {
-         padding:calc((((var(--NavLinks-Icon-Padding) * 2) + var(--NavLinks-Icon-Size)) - var(--NavLinks-Text-Font-Size)) / 2);
-         margin-right:1px;
-         font-family:quicksand;
-         font-weight:bold;
-         font-size:var(--NavLinks-Text-Font-Size);
-         text-transform:uppercase;
-         letter-spacing:1px;
-         color:var(--Accent-Color-1A);
-         }
-         /*------- MIDDLE SECTION (under the topbar) -------*/
-         #adrastea {
-         margin-top:var(--Container-Outer-Padding);
-         margin-left:var(--Container-Outer-Padding);
-         display:table;
-         width:calc(100% + var(--CustomLinks-Spacing) - (var(--Container-Outer-Padding) * 2));
-         }
-         /*-------- LEFT SECTION --------*/
-         #beurre {
-         position:relative;
-         display:table-cell;
-         width:100%;
-         text-align:left;
-         z-index:2;
-         }
-         /*-------- HEART ICON --------*/
-         .coeur-flex {
-         display:flex;
-         align-items:center;
-         margin-left:calc(var(--Icon-Image-Size) + (var(--Icon-Image-Border-Size) * 2) + var(--Icon-Image-Border-Size));
-         margin-bottom:var(--Heart-Icon-Bottom-Gap);
-         line-height:1em;
-         }
-         .coeur-flex:before {
-         content:"";
-         position:absolute;
-         margin-left:calc(((var(--Icon-Image-Size) / 2) + (var(--Icon-Image-Border-Size) * 2) + 1px) * -1);
-         width:calc((var(--Icon-Image-Size) / 2) + (var(--Icon-Image-Border-Size) * 3));
-         height:var(--Icon-Image-Border-Size);
-         background:var(--Accent-Color-1A);
-         border-radius:var(--Icon-Image-Border-Size);
-         }
-         .coeur-flex:after {
-         content:"";
-         position:absolute;
-         width:var(--Icon-Image-Border-Size);
-         margin-top:calc((var(--Heart-Icon-Size) / 2) + var(--Heart-Icon-Padding) + var(--Heart-Icon-Bottom-Gap) + var(--Icon-Image-Border-Size));
-         margin-left:calc((((var(--Icon-Image-Size) / 2) + (var(--Icon-Image-Border-Size) * 2)) * -1) - 1px);
-         height:calc((var(--Heart-Icon-Size) / 2) + var(--Heart-Icon-Padding) + var(--Heart-Icon-Bottom-Gap) + var(--Icon-Image-Border-Size));
-         background:var(--Accent-Color-1A);
-         }
-         .the-heart {
-         position:relative;
-         padding:var(--Heart-Icon-Padding);
-         background:var(--Accent-Color-1A);
-         border-radius:100%;
-         font-size:var(--Heart-Icon-Size);
-         color:var(--Accent-Color-1B);
-         z-index:1;
-         }
-         .the-heart.cp-heart-o, .the-heart.cp-heart-o {
-         padding-top:calc(var(--Heart-Icon-Padding) + 1px);
-         padding-bottom:calc(var(--Heart-Icon-Padding) - 1px);
-         }
-         /*-------- TEXT, RIGHT OF HEART --------*/
-         .heart-text {
-         /* marg left minus smth */
-         margin-left:calc(var(--Heart-Icon-Text-Padding-HORIZONTAL) * -0.69);
-         }
-         .heart-text top {
-         display:block;
-         padding:var(--Heart-Icon-Text-Padding-VERTICAL) var(--Heart-Icon-Text-Padding-HORIZONTAL);
-         background:var(--Accent-Color-1A);
-         border-radius:0 var(--Heart-Icon-Text-TOP-Roundness) 0 0;
-         font-family:quicksand;
-         text-transform:uppercase;
-         font-size:var(--Heart-Icon-Text-TOP-Font-Size);
-         letter-spacing:1px;
-         color:var(--Accent-Color-1B);
-         }
-         .heart-text bottom {
-         display:block;
-         margin-bottom:calc(var(--Heart-Icon-Text-Padding-VERTICAL) * -1);
-         padding:calc(var(--Heart-Icon-Text-Padding-VERTICAL) * 2) var(--Heart-Icon-Text-Padding-HORIZONTAL);
-         background:var(--Accent-Color-2A);
-         font-family:quicksand;
-         text-transform:uppercase;
-         font-size:var(--Heart-Icon-Text-BOTTOM-Font-Size);
-         letter-spacing:1px;
-         color:var(--Accent-Color-2B);
-         }
-         /*------- ICON, SYMBOLS, STATS W/ LABELS -------*/
-         .dia-flex {
-         display:flex;
-         align-items:center;
-         }
-         .icon-image {
-         position:relative;
-         margin-right:calc(var(--Icon-Image-Border-Size) * -1);
-         width:var(--Icon-Image-Size);
-         height:var(--Icon-Image-Size);
-         border:var(--Icon-Image-Border-Size) solid var(--Accent-Color-1A);
-         border-radius:var(--Icon-Image-Roundness);
-         z-index:1;
-         }
-         .stats {
-         }
-         .one-stat {
-         display:flex;
-         align-items:center;
-         margin:var(--Stats-Spacing) 0;
-         margin-left:calc(((var(--Icon-Image-Border-Size) + var(--Heart-Icon-Padding) + (var(--Heart-Icon-Size) / 2)) - (var(--Stats-Icon-Size) / 2) - var(--Stats-Icon-Padding)) + var(--Icon-Image-Border-Size));
-         line-height:1em;
-         }
-         .one-stat:first-of-type {margin-top:0;}
-         .one-stat:last-of-type {margin-bottom:0;}
-         .one-stat:before {
-         content:"";
-         position:absolute;
-         margin-left:calc((((var(--Heart-Icon-Size) + (var(--Heart-Icon-Padding) * 2) + (var(--Heart-Icon-Text-Padding-HORIZONTAL) * (1 - 0.69))) - var(--Stats-Icon-Size) - (var(--Stats-Icon-Padding) * 2)) * -0.5) - var(--Icon-Image-Border-Size));
-         width:calc((var(--Heart-Icon-Size) + (var(--Heart-Icon-Padding) * 2) + (var(--Heart-Icon-Text-Padding-HORIZONTAL) * (1 - 0.69))) + (var(--Icon-Image-Border-Size) * 2));
-         height:var(--Icon-Image-Border-Size);
-         background:var(--Accent-Color-1A);
-         }
-         .one-stat .cp {
-         position:relative;
-         margin-right:calc((((var(--Heart-Icon-Size) + (var(--Heart-Icon-Padding) * 2) + (var(--Heart-Icon-Text-Padding-HORIZONTAL) * (1 - 0.69))) - var(--Stats-Icon-Size) - (var(--Stats-Icon-Padding) * 2)) * 0.5) + var(--Icon-Image-Border-Size));
-         padding:var(--Stats-Icon-Padding);
-         background:var(--Accent-Color-1A);
-         border-radius:100%;
-         font-size:var(--Stats-Icon-Size);
-         color:var(--Accent-Color-1B);
-         z-index:1;
-         }
-         .one-stat label {
-         margin-left:calc(var(--Icon-Image-Border-Size) * -.5);
-         padding:var(--Stats-Label-Padding) calc(var(--Stats-Label-Padding) * 1.5);
-         background:var(--Accent-Color-2A);
-         border-left:var(--Icon-Image-Border-Size) solid var(--Accent-Color-1A);
-         font-family:quicksand;
-         font-size:var(--Stats-Label-Font-Size);
-         font-weight:bold;
-         text-transform:uppercase;
-         letter-spacing:0.7px;
-         color:var(--Accent-Color-2B);
-         }
-         .one-stat span {
-         margin-left:calc(var(--Stats-Label-Padding) * 0.7);
-         font-family:quicksand;
-         font-size:var(--Stats-Detail-Font-Size);
-         letter-spacing:0.1px;
-         color:var(--Text-Color);
-         }
-         /*-------- CUSTOM LINKS --------*/
-         #crevette {
-         display:table-cell;
-         }
-         .customlinks {
-         display:flex;
-         flex-wrap:wrap;
-         margin:calc(var(--CustomLinks-Spacing) * -1);
-         margin-top:calc(var(--Heart-Icon-Text-TOP-Font-Size));
-         padding-left:var(--Container-Inner-Padding);
-         width:calc((var(--CustomLinks-Width) * var(--CustomLinks-Columns-Per-Row)) + (var(--CustomLinks-Spacing) * var(--CustomLinks-Columns-Per-Row) * (2 + 1)));
-         }
-         .customlinks a {
-         display:flex;
-         align-items:center;
-         margin:var(--CustomLinks-Spacing);
-         width:var(--CustomLinks-Width);
-         background:var(--Accent-Color-1B);
-         border:1px solid var(--Accent-Color-1A);
-         border-radius:5px;
-         line-height:1em;
-         overflow:hidden;
-         max-height:calc((var(--CustomLinks-Icon-Padding) * 2) + var(--CustomLinks-Icon-Size));
-         }
-         .customlinks .cp {
-         padding:var(--CustomLinks-Icon-Padding);
-         background:var(--Accent-Color-1A);
-         font-size:var(--CustomLinks-Icon-Size);
-         color:var(--Accent-Color-1B);
-         }
-         .customlinks span {
-         padding:calc((((var(--CustomLinks-Icon-Padding) * 2) + var(--CustomLinks-Icon-Size)) - var(--CustomLinks-Text-Font-Size)) / 2);
-         margin-right:1px;
-         font-family:quicksand;
-         font-weight:bold;
-         font-size:var(--CustomLinks-Text-Font-Size);
-         text-transform:uppercase;
-         letter-spacing:1px;
-         color:var(--Accent-Color-1A);
-         }
-         /*-------- BIO TEXT --------*/
-         #bio-text {
-         position:absolute;
-         margin-top:var(--Container-Inner-Padding);
-         margin-left:var(--Container-Outer-Padding);
-         width:calc(100% - var(--Container-Outer-Padding) * 2);
-         font-family:quicksand;
-         font-size:var(--BioText-Font-Size);
-         letter-spacing:0.3px;
-         color:var(--Text-Color);
-         text-align:justify;
-         line-height:var(--BioText-LineHeight);
-         overflow-y:auto;
-         }
-         #bio-text a {
-         position:relative;
-         color:var(--Normal-Links-Color);
-         }
-         #bio-text a:after {
-         content:"";
-         position:absolute;
-         left:0;
-         margin-top:calc(var(--BioText-Font-Size) * (var(--BioText-LineHeight) * 0.93));
-         width:100%;
-         height:1px;
-         background:var(--Normal-Links-Color);
-         opacity:0.3;
-         }
-         #bio-text i {
-         display:inline-block;
-         transform:skewX(-7deg);
-         padding:0px 4px;
-         background:var(--Accent-Color-2A);
-         color:var(--Accent-Color-2B);
-         font-style:normal;
-         }
-         #bio-text p {margin-bottom:0;}
-         /*-------- RIGHT SIDEBAR --------*/
-         #ahi-tuna {
-         display:table-cell;
-         position:relative;
-         width:var(--Sidebar-BG-Image-Width);
-         height:var(--Sidebar-BG-Image-Height);
-         background-color:var(--Sidebar-BG-Color);
-         }
-         #sb-background {
-         width:100%;
-         height:100%;
-         background-image:url(https://64.media.tumblr.com/5f5eece3f9f0b256feb32ce7f93c99d2/tumblr_p26qkqW7pc1ubolzro5_r1_1280.png);
-         background-size:cover;
-         overflow:hidden;
-         }
-         /* sidebar FOREGROUND image */
-         #hoisin {
-         position:absolute;
-         bottom:0;left:0;
-         width:100%;
-         height:100%;
-         overflow:hidden;
-         }
-         #sauce {
-         position:relative;
-         width:100%;
-         height:100%;
-         overflow:hidden;
-         }
-         #sb-foreground {
-         position:absolute;
-         /*max-width:100%;
-         width:var(--Sidebar-Foreground-Image-Width);*/
-         /*------ sidebar FOREGROUND IMAGE positioning ------*/
-         /*-- 🍣🍣🍣🍣🍣🍣🍣 --*/
-         /* depending on your image, you may need to adjust the positioning */
-         /* e.g. left or right */
-         /* feel free to add what you need to */
-         bottom:0;
-         left:0;
-		 height: 100%;
-         }
-         #quote {
-         position:absolute;
-         bottom:0;margin-bottom:var(--Speech-Bubble-Margins);
-         left:0;margin-left:var(--Speech-Bubble-Margins);
-         width:calc(100% - (var(--Speech-Bubble-Margins) * 2));
-         }
-         #bubble {
-         padding:calc(var(--Speech-Bubble-Padding) * 0.85) var(--Speech-Bubble-Padding);
-         background:rgba(var(--Speech-Bubble-BG),var(--Speech-Bubble-BG-Opacity));
-         border:1px solid rgba(var(--Speech-Bubble-Border-Color),var(--Speech-Bubble-Border-Opacity));
-         border-radius:var(--Speech-Bubble-Roundness);
-         font-family:quicksand;
-         font-size:var(--Speech-Bubble-Font-Size);
-         letter-spacing:0.3px;
-         color:var(--Speech-Bubble-Text);
-         text-align:left;
-         line-height:1.63em;
-         }
-         /*--------------- SCROLLBAR ---------------*/
-         /* i strongly advise AGAINST editing this bc since this is
-         NOT my scrollbar (jQuery scrollbar by @gromo),
-         i will have difficulty assisting you */
-         .scrollbar-outer > .scroll-element {
-         background:transparent;
-         }
-         .scrollbar-outer > .scroll-element .scroll-element_track { 
-         background:var(--Accent-Color-2A);
-         }
-         .scrollbar-outer > .scroll-element .scroll-bar {
-         background:var(--Accent-Color-1A);
-         opacity:0.7;
-         }
-         .scrollbar-outer > .scroll-element .scroll-bar:hover {
-         background:var(--Accent-Color-1A);
-         }
-         .scrollbar-outer > .scroll-element.scroll-draggable .scroll-bar {
-         background:var(--Accent-Color-1A);
-         }
-         .scrollbar-outer > .scroll-element.scroll-y {
-         width:7px;
-         }
-         .scrollbar-outer > .scroll-element.scroll-y .scroll-element_outer {
-         width:5px;
-         }
-         .scrollbar-outer > .scroll-element .scroll-element_outer,
-         .scrollbar-outer > .scroll-element .scroll-element_track,
-         .scrollbar-outer > .scroll-element .scroll-bar {
-         -webkit-border-radius:5px;
-         -moz-border-radius:5px;
-         border-radius:5px;
-         }
-      </style>
-      <script
-         defer
-         type="application/javascript"
-         id="bilmur"
-         data-provider="tumblr.com"
-         data-service="blognetwork"
-         data-customproperties='{"theme": ""}'
-         nonce="RABBbkzSF5KP2E3erlqCuZJszE"
-         src="https://s0.wp.com/wp-content/js/bilmur.min.js?m=202302"
-         ></script><script src="https://assets.tumblr.com/assets/scripts/tumblelog_post_message_queue.js?_v=a8fadfa499d8cb7c3f8eefdf0b1adfdd"></script>
-      <link rel="stylesheet" type="text/css" href="https://assets.tumblr.com/fonts/calluna/stylesheet.css?v=3">
-      <!-- BEGIN TUMBLR FACEBOOK OPENGRAPH TAGS --><!-- If you'd like to specify your own Open Graph tags, define the og:url and og:title tags in your theme's HTML. --><!-- Read more: http://ogp.me/ -->
-      <meta property="fb:app_id" content="48119224995" />
-      <meta property="og:site_name" content="Tumblr" />
-      <meta property="og:title" content="Tumblr" />
-      <meta property="og:url" content="https://glenthpvs.tumblr.com/empress" />
-      <meta property="og:type" content="article" />
-      <meta property="al:ios:url" content="tumblr://x-callback-url/blog?blogName=glenthpvs&amp;postID=" />
-      <meta property="al:ios:app_name" content="Tumblr" />
-      <meta property="al:ios:app_store_id" content="305343404" />
-      <meta property="al:android:url" content="tumblr://x-callback-url/blog?blogName=glenthpvs&amp;postID=" />
-      <meta property="al:android:app_name" content="Tumblr" />
-      <meta property="al:android:package" content="com.tumblr" />
-      <!-- END TUMBLR FACEBOOK OPENGRAPH TAGS --><!-- TWITTER TAGS -->
-      <meta charset="utf-8">
-      <meta name="twitter:site" content="tumblr" />
-      <meta name="twitter:card" content="summary" />
-      <meta name="twitter:description" content="If you&#039;ve come here to check out a theme preview, you&#039;re in the wrong place! Please check out the..." />
-      <meta name="twitter:title" content="preview blog" />
-      <meta name="twitter:app:name:iphone" content="Tumblr" />
-      <meta name="twitter:app:name:ipad" content="Tumblr" />
-      <meta name="twitter:app:name:googleplay" content="Tumblr" />
-      <meta name="twitter:app:id:iphone" content="305343404" />
-      <meta name="twitter:app:id:ipad" content="305343404" />
-      <meta name="twitter:app:id:googleplay" content="com.tumblr" />
-      <meta name="twitter:app:url:iphone" content="tumblr://x-callback-url/blog?blogName=glenthpvs&amp;referrer=twitter-cards" />
-      <meta name="twitter:app:url:ipad" content="tumblr://x-callback-url/blog?blogName=glenthpvs&amp;referrer=twitter-cards" />
-      <meta name="twitter:app:url:googleplay" content="tumblr://x-callback-url/blog?blogName=glenthpvs&amp;referrer=twitter-cards" />
-      <link rel="canonical" href="https://glenthpvs.tumblr.com/empress" />
-   </head>
-   <body>
-      <div id="horizontal-a">
-         <div id="horizontal-b">
-            <div id="vertigo-a">
-               <div id="vertigo-b">
-                  <div id="frame">
-                     <div id="potato">
-                        <div id="navbar">
-                           <div class="backtotop">
-                              <a class="montagne">
-                              <i class="cp cp-arrow-up"></i>
-                              <span>Top</span>
-                              </a>
-                           </div>
-                           <!--backtotop-->
-                           <div class="navlinks">
-                              <a href="https://open.spotify.com/user/xjonnyrx" target="_blank">
-                              <i class="cp cp-spotify"></i>
-                              <span>Spotify</span>
-                              </a>
-                              <a href="https://www.youtube.com/watch?v=l1dPqxiB8aI" target="_blank">
-                              <i class="cp cp-youtube"></i>
-                              <span>Youtube</span>
-                              </a>
-                           </div>
-                           <!--navlinks-->
-                        </div>
-                        <!--navbar-->
-                        <div id="adrastea">
-                           <div id="beurre">
-                              <div class="coeur-flex">
-                                 <i class="the-heart cp cp-home-o"></i>
-                                 <div class="heart-text">
-                                    <top>Welcome to my Space</top>
-                                    <bottom>Jonny</bottom>
-                                 </div>
-                                 <!--heart-text-->
-                              </div>
-                              <!--coeur-flex-->
-                              <div class="dia-flex">
-                                 <img class="icon-image" src="https://xatimg.com/image/dmSzztkRjhbX.gif">
-                                 <div class="stats">
-                                    <div class="one-stat">
-                                       <i class="cp cp-pencil-o"></i>
-                                       <label>Name:</label>
-                                       <span>JONNY</span>
-                                    </div>
-                                    <!--one-stat-->
-                                    <div class="one-stat">
-                                       <i class="cp cp-worldwide-o"></i>
-                                       <label>Country:</label>
-                                       <span>Ecuador</span>
-                                    </div>
-                                    <!--one-stat-->
-                                    <div class="one-stat">
-                                       <i class="cp cp-music-note"></i>
-                                       <label>Music:</label>
-                                       <span>♫</span>
-                                    </div>
-                                    <!--one-stat-->
-                                 </div>
-                                 <!--stats-->
-                              </div>
-                              <!--dia-flex-->
-                           </div>
-                           <!--beurre-->
-                           <div id="crevette">
-                              <div class="customlinks" position="middle">
-                                 <img src="https://xatimg.com/image/GF9ihqskrZkX.gif" style="width: 225px;margin-top: 35px;">
-                              </div>
-                              <!--customlinks-->
-                           </div>
-                           <!--crevette-->
-                        </div>
-                        <!--adrastea-->
-                        <div id="bio-text">
-                           <div class="textwrap scrollbar-outer">
-                             <img src="https://xatimg.com/image/Ccqp4n6PMKqg.jpg" style="width: 100%;">
-                           </div>
-                           <!--textwrap-->
-                        </div>
-                        <!--end bio text-->
-                     </div>
-                     <!--potato--><!--do not delete this line-->
-                     <div id="ahi-tuna">
-                        <div id="sb-background" fade-in="yes"></div>
-                        <div id="hoisin">
-                           <div id="sauce">
-                              <img id="sb-foreground" src="https://xatimg.com/image/gk7ZxbXHYmbG.jpg">
-                           </div>
-                           <!--sauce-->
-                        </div>
-                        <!--hoisin-->
-                        <div id="quote">
-                           <div id="bubble">If a soul is ready to commit suicide, it means that it is already lost. It doesn't matter if he is alive or dead, he has no salvation.</div>
-                        </div>
-                     </div>
-                     <!--ahi-tuna-->
+
+        // Scrollbar (si el plugin está cargado)
+        try {
+          $(".scrollbar-outer").scrollbar();
+        } catch(e) {}
+
+        // Back to top
+        $(".montagne").on("click", function(e){
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        // Fade-in opcional
+        $("#crevette, #bio-text, #sb-background, #sb-foreground").css("opacity", 1);
+
+      });
+    })(jQuery);
+  </script>
+
+  <style>
+    /*--------------------TOOLTIPS--------------------*/
+    #s-m-t-tooltip{
+      padding:5px 10px;
+      margin:20px;
+      background:var(--Tooltips-BG);
+      border:1px solid var(--Tooltips-Border);
+      font-family:karla;
+      font-size:var(--Tooltips-Font-Size);
+      letter-spacing:1px;
+      text-transform:uppercase;
+      color:var(--Tooltips-Text);
+      z-index:999999;
+      max-width:40vw;
+    }
+
+    /*--------------------TEXT HIGHLIGHT--------------------*/
+    ::selection{ color:var(--Accent-Color-1A); }
+    ::-moz-selection{ color:var(--Accent-Color-1A); }
+
+    /*--------------------BASICS--------------------*/
+    html{ pointer-events: initial; }
+    body{
+      background-attachment:fixed;
+      line-height:1.6em;
+      font-size:12px;
+      text-align:left;
+
+      background-color:#939393;
+      background-repeat:no-repeat;
+    }
+
+    blockquote{
+      padding-left:10px;
+      margin-left:5px;
+      border-left:1px solid #aaa;
+      margin:10px;
+    }
+    a, :after, :before{
+      text-decoration:none;
+      transition: all 0.4s ease-in-out;
+    }
+    pre, code{ white-space:pre-wrap; }
+    hr{
+      width:70%;
+      border:0;
+      height:1px;
+      background-color:#bbb;
+    }
+    img{ vertical-align:middle; }
+
+    /*---------------CUSTOMIZATION OPTIONS---------------*/
+    :root{
+      /*------- OUTER FRAME -------*/
+      --Frame-Thickness:22px;
+      --Frame-Color:255, 255, 255; /* RGB only */
+      --Frame-Opacity:0.25;
+      --Frame-Shadow-Size:45px;
+      --Frame-Shadow-Color:0, 0, 0; /* RGB only */
+      --Frame-Shadow-Opacity:0.06;
+
+      /*------- GENERAL -------*/
+      --Accent-Color-1A:#5a5a5a;    /* dark */
+      --Accent-Color-1B:#fff;       /* white */
+      --Accent-Color-2A:#fafafa;    /* pale */
+      --Accent-Color-2B:#888;       /* gray */
+      --Container-Outer-Padding:20px;
+      --Container-Inner-Padding:20px;
+      --Main-Text-Width:600px;
+      --Main-Background:#fff;
+      --Text-Color:#999;
+      --Normal-Links-Color:#a3c7b4;
+
+      /*------- TOP BAR -------*/
+      --Top-Bar-Padding:13px;
+
+      /*------- NAV LINKS -------*/
+      --NavLinks-Icon-Size:12px;
+      --NavLinks-Icon-Padding:5px;
+      --NavLinks-Text-Font-Size:9px;
+      --NavLinks-Spacing:12px;
+
+      /*------- HEART ICON -------*/
+      --Heart-Icon-Size:28px;
+      --Heart-Icon-Padding:12px;
+      --Heart-Icon-Text-TOP-Font-Size:9px;
+      --Heart-Icon-Text-TOP-Roundness:25px;
+      --Heart-Icon-Text-Padding-VERTICAL:3px;
+      --Heart-Icon-Text-Padding-HORIZONTAL:25px;
+      --Heart-Icon-Text-BOTTOM-Font-Size:13px;
+      --Heart-Icon-Bottom-Gap:10px;
+
+      /*------- ICON IMAGE -------*/
+      --Icon-Image-Size:80px;
+      --Icon-Image-Border-Size:5px;
+      --Icon-Image-Roundness:10px;
+
+      /*------- STATS -------*/
+      --Stats-Icon-Size:12px;
+      --Stats-Icon-Padding:7px;
+      --Stats-Label-Font-Size:11px;
+      --Stats-Label-Padding:6px;
+      --Stats-Detail-Font-Size:13px;
+      --Stats-Spacing:7px;
+
+      /*------- CUSTOM LINKS -------*/
+      --CustomLinks-Icon-Size:12px;
+      --CustomLinks-Icon-Padding:5px;
+      --CustomLinks-Text-Font-Size:9px;
+      --CustomLinks-Width:105px;
+      --CustomLinks-Spacing:5px;
+      --CustomLinks-Columns-Per-Row:2;
+
+      /*------- BIO TEXT -------*/
+      --BioText-Font-Size:12px;
+      --BioText-LineHeight:1.69;
+
+      /*------- RIGHT SIDEBAR -------*/
+      --Sidebar-BG-Image-Width:300px;
+      --Sidebar-BG-Image-Height:470px;
+      --Sidebar-BG-Color:#fafafa;
+      --Sidebar-Foreground-Image-Width:300px;
+
+      /*--- SPEECH BUBBLE ---*/
+      --Speech-Bubble-Margins:20px;
+      --Speech-Bubble-BG:255, 255, 255;
+      --Speech-Bubble-BG-Opacity:0.865;
+      --Speech-Bubble-Border-Color:51, 51, 51;
+      --Speech-Bubble-Border-Opacity:0.07;
+      --Speech-Bubble-Roundness:12px;
+      --Speech-Bubble-Font-Size:12px;
+      --Speech-Bubble-Text:#666;
+      --Speech-Bubble-Padding:15px;
+
+      /*------- MISC/OTHER -------*/
+      --Tooltips-BG:#fefefe;
+      --Tooltips-Border:#f2f2f2;
+      --Tooltips-Text:#aaa;
+      --Tooltips-Font-Size:9px;
+    }
+
+    #horizontal-a{
+      position:fixed;
+      top:0;left:0;right:0;
+      margin:0 auto;
+      height:100vh;
+      text-align:center;
+      z-index:-1;
+    }
+    #horizontal-b{ display:inline-block; }
+    #vertigo-a{ height:100vh; display:table; }
+    #vertigo-b{ display:table-cell; vertical-align:middle; }
+
+    #frame{
+      border:var(--Frame-Thickness) solid rgba(var(--Frame-Color),var(--Frame-Opacity));
+      box-shadow:0 0 var(--Frame-Shadow-Size) 0 rgba(var(--Frame-Shadow-Color),var(--Frame-Shadow-Opacity));
+      display:table;
+    }
+
+    /*-------- LEFT (MAIN) CONTAINER --------*/
+    #potato{
+      position:relative;
+      display:table-cell;
+      vertical-align:top;
+      width:var(--Main-Text-Width);
+      background:var(--Main-Background);
+    }
+
+    /*-------- TOP BAR --------*/
+    #navbar{
+      padding:var(--Top-Bar-Padding);
+      background:var(--Accent-Color-2A);
+      overflow:auto;
+    }
+    .backtotop{ float:left; cursor:pointer; }
+    .backtotop a{
+      display:flex;
+      align-items:center;
+      background:var(--Accent-Color-1B);
+      border:1px solid var(--Accent-Color-1A);
+      border-radius:5px;
+      line-height:1em;
+      overflow:hidden;
+      max-height:calc((var(--NavLinks-Icon-Padding) * 2) + var(--NavLinks-Icon-Size));
+    }
+    .backtotop .cp{
+      padding:var(--NavLinks-Icon-Padding);
+      background:var(--Accent-Color-1A);
+      font-size:var(--NavLinks-Icon-Size);
+      color:var(--Accent-Color-1B);
+    }
+    .backtotop span{
+      padding:calc((((var(--NavLinks-Icon-Padding) * 2) + var(--NavLinks-Icon-Size)) - var(--NavLinks-Text-Font-Size)) / 2);
+      margin-right:1px;
+      font-family:quicksand;
+      font-weight:bold;
+      font-size:var(--NavLinks-Text-Font-Size);
+      text-transform:uppercase;
+      letter-spacing:1px;
+      color:var(--Accent-Color-1A);
+    }
+    .navlinks{ float:right; display:flex; }
+    .navlinks a{
+      display:flex;
+      align-items:center;
+      margin-left:var(--NavLinks-Spacing);
+      background:var(--Accent-Color-1B);
+      border:1px solid var(--Accent-Color-1A);
+      border-radius:5px;
+      line-height:1em;
+      overflow:hidden;
+      max-height:calc((var(--NavLinks-Icon-Padding) * 2) + var(--NavLinks-Icon-Size));
+    }
+    .navlinks .cp{
+      padding:var(--NavLinks-Icon-Padding);
+      background:var(--Accent-Color-1A);
+      font-size:var(--NavLinks-Icon-Size);
+      color:var(--Accent-Color-1B);
+    }
+    .navlinks span{
+      padding:calc((((var(--NavLinks-Icon-Padding) * 2) + var(--NavLinks-Icon-Size)) - var(--NavLinks-Text-Font-Size)) / 2);
+      margin-right:1px;
+      font-family:quicksand;
+      font-weight:bold;
+      font-size:var(--NavLinks-Text-Font-Size);
+      text-transform:uppercase;
+      letter-spacing:1px;
+      color:var(--Accent-Color-1A);
+    }
+
+    /*------- MIDDLE SECTION -------*/
+    #adrastea{
+      margin-top:var(--Container-Outer-Padding);
+      margin-left:var(--Container-Outer-Padding);
+      display:table;
+      width:calc(100% + var(--CustomLinks-Spacing) - (var(--Container-Outer-Padding) * 2));
+    }
+
+    /*-------- LEFT SECTION --------*/
+    #beurre{
+      position:relative;
+      display:table-cell;
+      width:100%;
+      text-align:left;
+      z-index:2;
+    }
+
+    /*-------- HEART ICON --------*/
+    .coeur-flex{
+      display:flex;
+      align-items:center;
+      margin-left:calc(var(--Icon-Image-Size) + (var(--Icon-Image-Border-Size) * 2) + var(--Icon-Image-Border-Size));
+      margin-bottom:var(--Heart-Icon-Bottom-Gap);
+      line-height:1em;
+    }
+    .coeur-flex:before{
+      content:"";
+      position:absolute;
+      margin-left:calc(((var(--Icon-Image-Size) / 2) + (var(--Icon-Image-Border-Size) * 2) + 1px) * -1);
+      width:calc((var(--Icon-Image-Size) / 2) + (var(--Icon-Image-Border-Size) * 3));
+      height:var(--Icon-Image-Border-Size);
+      background:var(--Accent-Color-1A);
+      border-radius:var(--Icon-Image-Border-Size);
+    }
+    .coeur-flex:after{
+      content:"";
+      position:absolute;
+      width:var(--Icon-Image-Border-Size);
+      margin-top:calc((var(--Heart-Icon-Size) / 2) + var(--Heart-Icon-Padding) + var(--Heart-Icon-Bottom-Gap) + var(--Icon-Image-Border-Size));
+      margin-left:calc((((var(--Icon-Image-Size) / 2) + (var(--Icon-Image-Border-Size) * 2)) * -1) - 1px);
+      height:calc((var(--Heart-Icon-Size) / 2) + var(--Heart-Icon-Padding) + var(--Heart-Icon-Bottom-Gap) + var(--Icon-Image-Border-Size));
+      background:var(--Accent-Color-1A);
+    }
+    .the-heart{
+      position:relative;
+      padding:var(--Heart-Icon-Padding);
+      background:var(--Accent-Color-1A);
+      border-radius:100%;
+      font-size:var(--Heart-Icon-Size);
+      color:var(--Accent-Color-1B);
+      z-index:1;
+    }
+    .heart-text{ margin-left:calc(var(--Heart-Icon-Text-Padding-HORIZONTAL) * -0.69); }
+    .heart-text top{
+      display:block;
+      padding:var(--Heart-Icon-Text-Padding-VERTICAL) var(--Heart-Icon-Text-Padding-HORIZONTAL);
+      background:var(--Accent-Color-1A);
+      border-radius:0 var(--Heart-Icon-Text-TOP-Roundness) 0 0;
+      font-family:quicksand;
+      text-transform:uppercase;
+      font-size:var(--Heart-Icon-Text-TOP-Font-Size);
+      letter-spacing:1px;
+      color:var(--Accent-Color-1B);
+    }
+    .heart-text bottom{
+      display:block;
+      margin-bottom:calc(var(--Heart-Icon-Text-Padding-VERTICAL) * -1);
+      padding:calc(var(--Heart-Icon-Text-Padding-VERTICAL) * 2) var(--Heart-Icon-Text-Padding-HORIZONTAL);
+      background:var(--Accent-Color-2A);
+      font-family:quicksand;
+      text-transform:uppercase;
+      font-size:var(--Heart-Icon-Text-BOTTOM-Font-Size);
+      letter-spacing:1px;
+      color:var(--Accent-Color-2B);
+    }
+
+    /*------- ICON + STATS -------*/
+    .dia-flex{ display:flex; align-items:center; }
+    .icon-image{
+      position:relative;
+      margin-right:calc(var(--Icon-Image-Border-Size) * -1);
+      width:var(--Icon-Image-Size);
+      height:var(--Icon-Image-Size);
+      border:var(--Icon-Image-Border-Size) solid var(--Accent-Color-1A);
+      border-radius:var(--Icon-Image-Roundness);
+      z-index:1;
+    }
+    .one-stat{
+      display:flex;
+      align-items:center;
+      margin:var(--Stats-Spacing) 0;
+      margin-left:calc(((var(--Icon-Image-Border-Size) + var(--Heart-Icon-Padding) + (var(--Heart-Icon-Size) / 2)) - (var(--Stats-Icon-Size) / 2) - var(--Stats-Icon-Padding)) + var(--Icon-Image-Border-Size));
+      line-height:1em;
+    }
+    .one-stat:first-of-type{ margin-top:0; }
+    .one-stat:last-of-type{ margin-bottom:0; }
+    .one-stat:before{
+      content:"";
+      position:absolute;
+      margin-left:calc((((var(--Heart-Icon-Size) + (var(--Heart-Icon-Padding) * 2) + (var(--Heart-Icon-Text-Padding-HORIZONTAL) * (1 - 0.69))) - var(--Stats-Icon-Size) - (var(--Stats-Icon-Padding) * 2)) * -0.5) - var(--Icon-Image-Border-Size));
+      width:calc((var(--Heart-Icon-Size) + (var(--Heart-Icon-Padding) * 2) + (var(--Heart-Icon-Text-Padding-HORIZONTAL) * (1 - 0.69))) + (var(--Icon-Image-Border-Size) * 2));
+      height:var(--Icon-Image-Border-Size);
+      background:var(--Accent-Color-1A);
+    }
+    .one-stat .cp{
+      position:relative;
+      margin-right:calc((((var(--Heart-Icon-Size) + (var(--Heart-Icon-Padding) * 2) + (var(--Heart-Icon-Text-Padding-HORIZONTAL) * (1 - 0.69))) - var(--Stats-Icon-Size) - (var(--Stats-Icon-Padding) * 2)) * 0.5) + var(--Icon-Image-Border-Size));
+      padding:var(--Stats-Icon-Padding);
+      background:var(--Accent-Color-1A);
+      border-radius:100%;
+      font-size:var(--Stats-Icon-Size);
+      color:var(--Accent-Color-1B);
+      z-index:1;
+    }
+    .one-stat label{
+      margin-left:calc(var(--Icon-Image-Border-Size) * -.5);
+      padding:var(--Stats-Label-Padding) calc(var(--Stats-Label-Padding) * 1.5);
+      background:var(--Accent-Color-2A);
+      border-left:var(--Icon-Image-Border-Size) solid var(--Accent-Color-1A);
+      font-family:quicksand;
+      font-size:var(--Stats-Label-Font-Size);
+      font-weight:bold;
+      text-transform:uppercase;
+      letter-spacing:0.7px;
+      color:var(--Accent-Color-2B);
+    }
+    .one-stat span{
+      margin-left:calc(var(--Stats-Label-Padding) * 0.7);
+      font-family:quicksand;
+      font-size:var(--Stats-Detail-Font-Size);
+      letter-spacing:0.1px;
+      color:var(--Text-Color);
+    }
+
+    /*-------- CUSTOM LINKS (derecha del bloque stats) --------*/
+    #crevette{ display:table-cell; opacity:1; }
+    .customlinks{
+      display:flex;
+      flex-wrap:wrap;
+      margin:calc(var(--CustomLinks-Spacing) * -1);
+      margin-top:calc(var(--Heart-Icon-Text-TOP-Font-Size));
+      padding-left:var(--Container-Inner-Padding);
+      width:calc((var(--CustomLinks-Width) * var(--CustomLinks-Columns-Per-Row)) + (var(--CustomLinks-Spacing) * var(--CustomLinks-Columns-Per-Row) * (2 + 1)));
+    }
+
+    /*-------- BIO TEXT --------*/
+    #bio-text{
+      position:absolute;
+      margin-top:var(--Container-Inner-Padding);
+      margin-left:var(--Container-Outer-Padding);
+      width:calc(100% - (var(--Container-Outer-Padding) * 2));
+      font-family:quicksand;
+      font-size:var(--BioText-Font-Size);
+      letter-spacing:0.3px;
+      color:var(--Text-Color);
+      text-align:justify;
+      line-height:var(--BioText-LineHeight);
+      overflow-y:auto;
+      opacity:1;
+    }
+    #bio-text a{ position:relative; color:var(--Normal-Links-Color); }
+    #bio-text a:after{
+      content:"";
+      position:absolute;
+      left:0;
+      margin-top:calc(var(--BioText-Font-Size) * (var(--BioText-LineHeight) * 0.93));
+      width:100%;
+      height:1px;
+      background:var(--Normal-Links-Color);
+      opacity:0.3;
+    }
+    #bio-text i{
+      display:inline-block;
+      transform:skewX(-7deg);
+      padding:0 4px;
+      background:var(--Accent-Color-2A);
+      color:var(--Accent-Color-2B);
+      font-style:normal;
+    }
+    #bio-text p{ margin-bottom:0; }
+
+    /*-------- RIGHT SIDEBAR --------*/
+    #ahi-tuna{
+      display:table-cell;
+      position:relative;
+      width:var(--Sidebar-BG-Image-Width);
+      height:var(--Sidebar-BG-Image-Height);
+      background-color:var(--Sidebar-BG-Color);
+    }
+    #sb-background{
+      width:100%;
+      height:100%;
+      background-image:url(https://64.media.tumblr.com/5f5eece3f9f0b256feb32ce7f93c99d2/tumblr_p26qkqW7pc1ubolzro5_r1_1280.png);
+      background-size:cover;
+      overflow:hidden;
+      opacity:1;
+      display:block;
+    }
+    #hoisin{
+      position:absolute;
+      bottom:0;left:0;
+      width:100%;
+      height:100%;
+      overflow:hidden;
+    }
+    #sauce{ position:relative; width:100%; height:100%; overflow:hidden; }
+    #sb-foreground{
+      position:absolute;
+      bottom:0;
+      left:0;
+      height:100%;
+      opacity:1;
+      display:block;
+    }
+
+    #quote{
+      position:absolute;
+      bottom:0;
+      margin-bottom:var(--Speech-Bubble-Margins);
+      left:0;
+      margin-left:var(--Speech-Bubble-Margins);
+      width:calc(100% - (var(--Speech-Bubble-Margins) * 2));
+    }
+    #bubble{
+      padding:calc(var(--Speech-Bubble-Padding) * 0.85) var(--Speech-Bubble-Padding);
+      background:rgba(var(--Speech-Bubble-BG),var(--Speech-Bubble-BG-Opacity));
+      border:1px solid rgba(var(--Speech-Bubble-Border-Color),var(--Speech-Bubble-Border-Opacity));
+      border-radius:var(--Speech-Bubble-Roundness);
+      font-family:quicksand;
+      font-size:var(--Speech-Bubble-Font-Size);
+      letter-spacing:0.3px;
+      color:var(--Speech-Bubble-Text);
+      text-align:left;
+      line-height:1.63em;
+    }
+
+    /*--------------- SCROLLBAR ---------------*/
+    .scrollbar-outer > .scroll-element{ background:transparent; }
+    .scrollbar-outer > .scroll-element .scroll-element_track{ background:var(--Accent-Color-2A); }
+    .scrollbar-outer > .scroll-element .scroll-bar{
+      background:var(--Accent-Color-1A);
+      opacity:0.7;
+    }
+    .scrollbar-outer > .scroll-element.scroll-y{ width:7px; }
+    .scrollbar-outer > .scroll-element.scroll-y .scroll-element_outer{ width:5px; }
+    .scrollbar-outer > .scroll-element .scroll-element_outer,
+    .scrollbar-outer > .scroll-element .scroll-element_track,
+    .scrollbar-outer > .scroll-element .scroll-bar{
+      border-radius:5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="horizontal-a">
+    <div id="horizontal-b">
+      <div id="vertigo-a">
+        <div id="vertigo-b">
+
+          <div id="frame">
+
+            <!-- LEFT -->
+            <div id="potato">
+
+              <div id="navbar">
+                <div class="backtotop">
+                  <a class="montagne" href="#">
+                    <i class="cp cp-arrow-up"></i>
+                    <span>Top</span>
+                  </a>
+                </div>
+
+                <div class="navlinks">
+                  <a href="https://open.spotify.com/user/xjonnyrx" target="_blank" rel="noopener noreferrer" title="Spotify">
+                    <i class="cp cp-spotify"></i>
+                    <span>Spotify</span>
+                  </a>
+                  <a href="https://www.youtube.com/watch?v=l1dPqxiB8aI" target="_blank" rel="noopener noreferrer" title="YouTube">
+                    <i class="cp cp-youtube"></i>
+                    <span>Youtube</span>
+                  </a>
+                </div>
+              </div>
+
+              <div id="adrastea">
+                <div id="beurre">
+                  <div class="coeur-flex">
+                    <i class="the-heart cp cp-home-o"></i>
+                    <div class="heart-text">
+                      <top>Welcome to my Space</top>
+                      <bottom>Jonny</bottom>
+                    </div>
                   </div>
-                  <!--frame-->
-               </div>
+
+                  <div class="dia-flex">
+                    <img class="icon-image" src="https://xatimg.com/image/dmSzztkRjhbX.gif" alt="icon">
+
+                    <div class="stats">
+                      <div class="one-stat">
+                        <i class="cp cp-pencil-o"></i>
+                        <label>Name:</label>
+                        <span>JONNY</span>
+                      </div>
+
+                      <div class="one-stat">
+                        <i class="cp cp-worldwide-o"></i>
+                        <label>Country:</label>
+                        <span>Ecuador</span>
+                      </div>
+
+                      <div class="one-stat">
+                        <i class="cp cp-music-note"></i>
+                        <label>Music:</label>
+                        <span>♫</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="crevette">
+                  <div class="customlinks" position="middle">
+                    <img src="https://xatimg.com/image/GF9ihqskrZkX.gif" style="width:225px;margin-top:35px;" alt="banner">
+                  </div>
+                </div>
+              </div>
+
+              <div id="bio-text">
+                <div class="textwrap scrollbar-outer">
+                  <img src="https://xatimg.com/image/Ccqp4n6PMKqg.jpg" style="width:100%;" alt="bio">
+                </div>
+              </div>
+
             </div>
-         </div>
+
+            <!-- RIGHT -->
+            <div id="ahi-tuna">
+              <div id="sb-background"></div>
+              <div id="hoisin">
+                <div id="sauce">
+                  <img id="sb-foreground" src="https://xatimg.com/image/gk7ZxbXHYmbG.jpg" alt="side">
+                </div>
+              </div>
+
+              <div id="quote">
+                <div id="bubble">
+                  If a soul is ready to commit suicide, it means that it is already lost.
+                  It doesn't matter if he is alive or dead, he has no salvation.
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
       </div>
-   </body>
+    </div>
+  </div>
+</body>
 </html>
